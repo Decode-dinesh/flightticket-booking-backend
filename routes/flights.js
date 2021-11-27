@@ -42,7 +42,7 @@ router.get("/getallflights", async (req,res) => {
 })
 
 // get by id
-router.get("/getallflight/:id", async (req, res) => {
+router.get("/getflight/:id", async (req, res) => {
     try {
         const flight = await Flights.findById(req.params.id);
         res.status(200).json(flight);

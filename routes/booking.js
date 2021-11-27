@@ -4,7 +4,11 @@ const Booking = require('../models/Booking');
 
 
 router.post("/postbooking", async (req, res) => {
-    const book = new Booking(req.body);
+    const name = req.body.name
+    const password = req.body.password
+    const travelsid = req.body.flightid
+    
+    const book = new Booking({name:name,password:password,travelsid:travelsid})
     try {
         const savedpost = await book.save()
         res.status(200).json(savedpost);
