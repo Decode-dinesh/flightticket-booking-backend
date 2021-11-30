@@ -32,7 +32,7 @@ router.get("/getallbooking", async (req,res) => {
 
 router.delete("/booking/:id", async (req,res)=>{
     try {
-        const booking = await Booking.findById(req.params.id);
+        const booking = await Booking.findByIdAndRemove(req.params.id);
         res.status(200).json(booking);
     } catch (err) {
         res.status(500).json(err);

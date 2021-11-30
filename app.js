@@ -8,11 +8,11 @@ var cors = require('cors');
 var dotenv = require('dotenv');
 
 
+
 dotenv.config();
 
-
+var signupRouter = require ('./routes/Signup');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var flightRouter = require('./routes/flights');
 var bookingRouter = require('./routes/booking');
 
@@ -37,10 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use('/', flightRouter);
 app.use('/', bookingRouter);
+app.use('/', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
